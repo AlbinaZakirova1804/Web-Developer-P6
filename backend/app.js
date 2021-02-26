@@ -1,7 +1,25 @@
+//mango pw: 1234
+//connecting string: mongodb+srv://zak1804:<password>@cluster0-ejyrz.mongodb.net/test?retryWrites=true&w=majority
+//mongodb://zak1804:1234@cluster0-shard-00-00-ejyrz.mongodb.net:27017,cluster0-shard-00-01-ejyrz.mongodb.net:27017,cluster0-shard-00-02-ejyrz.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority
+
+
 const express = require('express');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 const app = express();
-const bodyParser = require('body-parser');
+
+
+//db connection
+mongoose.connect('mongodb://zak1804:1234@cluster0-shard-00-00-ejyrz.mongodb.net:27017,cluster0-shard-00-01-ejyrz.mongodb.net:27017,cluster0-shard-00-02-ejyrz.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority')
+.then(()=>{
+    console.log('Successfully connected to MongoDB Atlas!');
+})
+.catch((error)=>{
+    console.log('Unable to connect to MongoDB Atlas!');
+    console.error(error);
+});
+//
 
 app.use((req, res, next) => {
 console.log("Request recived!");

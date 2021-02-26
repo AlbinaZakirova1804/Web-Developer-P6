@@ -16,6 +16,7 @@
     "express": "^4.17.1",
     "http-server": "^0.12.3",
     "live-server": "^1.2.1",
+    "mongoose": "^5.11.18",
     "run-script-os": "^1.0.7"
   }
 }
