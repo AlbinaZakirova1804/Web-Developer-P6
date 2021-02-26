@@ -1,6 +1,7 @@
 const express = require('express');
 
 const app = express();
+const bodyParser = require('body-parser');
 
 app.use((req, res, next) => {
 console.log("Request recived!");
@@ -30,3 +31,6 @@ app.use((req, res, next) => {
   });
 
 module.exports = app;
+
+
+app.use(bodyParser.json());
