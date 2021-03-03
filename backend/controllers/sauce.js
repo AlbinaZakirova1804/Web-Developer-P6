@@ -1,5 +1,5 @@
 const Sauce = require('../models/sauce');
-global.atob = require(atob);
+
 
 /******CREATE********/
 exports.createSauce = (req, res, next) => {
@@ -16,10 +16,10 @@ exports.createSauce = (req, res, next) => {
             description: req.body.sauce.description,
             imageUrl: url + '/images' + req.file.filename,
             heat: req.body.sauce.heat,
-            likes: req.body.sauce.likes,//number 
-            dislikes: req.body.sauce.dislikes,//number
-            userLiked: req.body.sauce.userLiked,//array
-            userDisliked: req.body.sauce.userDisliked
+           // likes: req.body.sauce.likes,//number 
+           // dislikes: req.body.sauce.dislikes,//number
+            //userLiked: req.body.sauce.userLiked,//array
+            //userDisliked: req.body.sauce.userDisliked
         })
 
     sauce.save().then(
@@ -41,7 +41,7 @@ exports.createSauce = (req, res, next) => {
 exports.viewAllSauces = (req, res, next) => {
     //console.log(req.locals.user + "<- Loged in User.");
     console.log("I am about to view all sauces");
-    Sauce.find().then(      //why find?
+    Sauce.find().then(      
         (sauces) => {
             res.status(200).json(sauces);
         }
