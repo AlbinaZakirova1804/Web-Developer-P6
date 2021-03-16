@@ -126,6 +126,11 @@ console.log(currentUser);
 
 /********DELETE*********/
 exports.deleteSauce = (req, res, next) => {
+    /******************************************/
+   // delete sauce only available for creator
+   currentUser = LoggedUser();
+   /********************************************/
+   
     console.log('We are at delete sauce!');
     Sauce.deleteOne({_id: req.params.id}).then(
         () => {
