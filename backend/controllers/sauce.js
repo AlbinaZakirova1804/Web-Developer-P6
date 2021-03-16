@@ -82,6 +82,12 @@ exports.viewSauce = (req, res, next) => {
 /**********UPDATE**********/
 exports.updateSauce = (req, res, next) => {
     console.log("I am in update sauce!", req.body);
+/*****************************************/
+//update available only for creator
+currentUser = LoggedUser(req);
+console.log(currentUser);
+/********************************************/  
+
     console.log("id "+req.params.id);
     console.log("_id"+req.params._id);
 
